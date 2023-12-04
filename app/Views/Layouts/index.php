@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
 	<base href="">
-	<title>Renanda nih</title>
+	<title><?= $title; ?></title>
 	<meta charset="utf-8" />
 	<link rel="icon" href="<?= base_url(); ?>/assets/media/logos/favicon.ico" />
 	<!--begin::Fonts-->
