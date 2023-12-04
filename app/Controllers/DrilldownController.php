@@ -28,4 +28,21 @@ class DrilldownController extends BaseController
 
         return view('Drilldowns/ProductionAmount/index', $viewData);
     }
+
+    public function drilldownProductionValue(): string
+    {
+        $productionValue = $this->production->getProductionValue();
+
+        $viewData = [
+            'title' => 'Drilldown Production Value',
+            'heading' => 'Drilldown Production Value',
+            'breadcrumbs' => [
+                'Drilldowns' => '#',
+                'Production Value' => base_url('drilldowns/production-value'),
+            ],
+            'productionValue' => $productionValue,
+        ];
+
+        return view('Drilldowns/ProductionValue/index', $viewData);
+    }
 }

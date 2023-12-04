@@ -8,7 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    const defaultTitle = 'Production Amount (in Tons)'
+    const defaultTitle = 'Production Value (in Rupiah)'
 
     const coordinates = {
         top: 0,
@@ -17,14 +17,14 @@
         right: 0,
     }
 
-    const productionAmountData = <?= json_encode($productionAmount); ?>;
+    const productionValueData = <?= json_encode($productionValue); ?>;
 
     const data = {
         datasets: [{
             label: defaultTitle,
-            data: productionAmountData,
-            backgroundColor: productionAmountData.map(item => item.background_color),
-            borderColor: productionAmountData.map(item => item.border_color),
+            data: productionValueData,
+            backgroundColor: productionValueData.map(item => item.background_color),
+            borderColor: productionValueData.map(item => item.border_color),
             borderWidth: 1
         }]
     };
@@ -91,7 +91,7 @@
             },
             parsing: {
                 xAxisKey: 'year',
-                yAxisKey: 'total_production_amount',
+                yAxisKey: 'total_production_value',
             },
             scales: {
                 y: {
@@ -122,23 +122,23 @@
 
     function changeChart(clickedValue) {
         myChart.config.options.parsing.xAxisKey = 'detail.production_type_name';
-        myChart.config.options.parsing.yAxisKey = 'detail.production_amount';
+        myChart.config.options.parsing.yAxisKey = 'detail.production_value';
 
         const backgroundColor = [];
         const borderColor = [];
-        const productionAmount = [];
-        const Labels = productionAmountData[clickedValue].detail.map(labels => {
-            backgroundColor.push(productionAmountData[clickedValue].background_color);
-            borderColor.push(productionAmountData[clickedValue].border_color);
-            productionAmount.push(labels.production_amount);
+        const productionValue = [];
+        const Labels = productionValueData[clickedValue].detail.map(labels => {
+            backgroundColor.push(productionValueData[clickedValue].background_color);
+            borderColor.push(productionValueData[clickedValue].border_color);
+            productionValue.push(labels.production_value);
             return labels.production_type_name;
         });
 
-        myChart.config.data.datasets[0].data = productionAmount;
+        myChart.config.data.datasets[0].data = productionValue;
         myChart.config.data.labels = Labels;
         myChart.config.data.datasets[0].backgroundColor = backgroundColor;
         myChart.config.data.datasets[0].borderColor = borderColor;
-        myChart.config.data.datasets[0].label = "Production Amount " + productionAmountData[clickedValue].year + " (in Tons)";
+        myChart.config.data.datasets[0].label = "Production Value " + productionValueData[clickedValue].year + " (in Rupiah)";
 
         myChart.update();
 
@@ -146,15 +146,15 @@
 
     function resetChart() {
         myChart.config.options.parsing.xAxisKey = 'year';
-        myChart.config.options.parsing.yAxisKey = 'total_production_amount';
+        myChart.config.options.parsing.yAxisKey = 'total_production_value';
 
         const backgroundColor = [];
         const borderColor = [];
-        const totalProductionAmount = [];
-        const Labels = productionAmountData.map(production => {
+        const totalProductionValue = [];
+        const Labels = productionValueData.map(production => {
             backgroundColor.push(production.background_color);
             borderColor.push(production.border_color);
-            totalProductionAmount.push(production.total_production_amount);
+            totalProductionValue.push(production.total_production_value);
             return production.year;
         });
 
@@ -162,7 +162,7 @@
         myChart.config.data.datasets[0].borderColor = borderColor;
         myChart.config.data.labels = Labels;
         myChart.config.data.datasets[0].label = defaultTitle;
-        myChart.config.data.datasets[0].data = totalProductionAmount;
+        myChart.config.data.datasets[0].data = totalProductionValue;
 
         myChart.update();
     }

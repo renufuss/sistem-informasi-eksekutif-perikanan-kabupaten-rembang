@@ -19,4 +19,11 @@ class ProductionDetailModel extends Model
         ->join('production_types', 'production_details.production_type_id = production_types.production_type_id', 'inner');
         return $query->get()->getResultObject();
     }
+
+    public function getProductionValue($productionId)
+    {
+        $query = $this->db->table($this->table)->select('*')->where('production_id', $productionId)
+        ->join('production_types', 'production_details.production_type_id = production_types.production_type_id', 'inner');
+        return $query->get()->getResultObject();
+    }
 }

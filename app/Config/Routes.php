@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/drilldowns/production-amount', 'DrilldownController::drilldownProductionAmount');
+$routes->get('/drilldowns/production-value', 'DrilldownController::drilldownProductionValue');

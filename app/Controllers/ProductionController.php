@@ -44,4 +44,30 @@ class ProductionController extends BaseController
         }
         return $data;
     }
+
+    public function getProductionValue()
+    {
+        $data = [];
+        $productions = $this->productionModel->getProduction();
+
+        foreach ($productions as $production) {
+            $productionDetails = $this->productionDetailModel->getProductionDetail($production->production_id);
+            $detailData = [];
+            $color = $this->utilitiesColor->randomRGBA();
+            foreach ($productionDetails as $productionDetail) {
+                array_push($detailData, [
+                    'production_type_name' => $productionDetail->production_type_name,
+                    'production_value' => $productionDetail->production_value,
+                ]);
+            }
+            array_push($data, [
+                'year' => $production->year,
+                'total_production_value' => $production->total_production_value,
+                'detail' => $detailData,
+                'background_color' => $color['background_color'],
+                'border_color' => $color['border_color'],
+            ]);
+        }
+        return $data;
+    }
 }
