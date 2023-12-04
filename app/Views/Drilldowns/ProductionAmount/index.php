@@ -8,6 +8,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    const defaultTitle = 'Production Amount (in tons)'
+
     const coordinates = {
         top: 0,
         bottom: 0,
@@ -82,20 +84,16 @@
         }
     ];
 
+    const productionAmountData = <?= json_encode($productionAmount); ?>;
+
+    console.log(productionAmountData);
+
     const data = {
         datasets: [{
-            label: 'Market Share',
-            data: browserData,
-            backgroundColor: [
-                browserData[0].color,
-                browserData[1].color,
-                browserData[2].color
-            ],
-            borderColor: [
-                browserData[0].color,
-                browserData[1].color,
-                browserData[2].color
-            ],
+            label: defaultTitle,
+            data: productionAmountData,
+            backgroundColor: productionAmountData.map(item => item.background_color),
+            borderColor: productionAmountData.map(item => item.border_color),
             borderWidth: 1
         }]
     };
@@ -103,7 +101,7 @@
     const resetButton = {
         id: 'resetButton',
         beforeDraw: (chart, args, options) => {
-            if (chart.config.data.datasets[0].label !== 'Market Share') {
+            if (chart.config.data.datasets[0].label !== defaultTitle) {
                 const {
                     ctx,
                     chartArea: {
@@ -154,15 +152,15 @@
                 }
             },
             onHover: (event, chartElement) => {
-                if (myChart.config.data.datasets[0].label === 'Market Share') {
+                if (myChart.config.data.datasets[0].label === defaultTitle) {
                     event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
                 } else {
                     event.native.target.style.cursor = 'default'
                 }
             },
             parsing: {
-                xAxisKey: 'browser',
-                yAxisKey: 'marketshare',
+                xAxisKey: 'year',
+                yAxisKey: 'total_production_amount',
             },
             scales: {
                 y: {
@@ -181,7 +179,7 @@
     );
 
     function clickHandler(click) {
-        if (myChart.config.data.datasets[0].label === 'Market Share') {
+        if (myChart.config.data.datasets[0].label === defaultTitle) {
             const bar = myChart.getElementsAtEventForMode(click, 'nearest', {
                 intersect: true
             }, true);
@@ -192,49 +190,54 @@
     }
 
     function changeChart(clickedValue) {
-        myChart.config.options.parsing.xAxisKey = 'versionData.version';
-        myChart.config.options.parsing.yAxisKey = 'versionData.users';
+        myChart.config.options.parsing.xAxisKey = 'detail.production_type_name';
+        myChart.config.options.parsing.yAxisKey = 'detail.production_amount';
 
-        const vColor = [];
-        const vUsers = [];
-        const vLabels = browserData[clickedValue].versionData.map(labels => {
-            vColor.push(browserData[clickedValue].color);
-            vUsers.push(labels.users);
-            return labels.version;
+        const backgroundColor = [];
+        const borderColor = [];
+        const productionAmount = [];
+        const Labels = productionAmountData[clickedValue].detail.map(labels => {
+            backgroundColor.push(productionAmountData[clickedValue].background_color);
+            borderColor.push(productionAmountData[clickedValue].border_color);
+            productionAmount.push(labels.production_amount);
+            return labels.production_type_name;
         });
 
-        myChart.config.data.datasets[0].data = vUsers;
-        myChart.config.data.labels = vLabels;
-        myChart.config.data.datasets[0].backgroundColor = vColor;
-        myChart.config.data.datasets[0].borderColor = vColor;
-        myChart.config.data.datasets[0].label = browserData[clickedValue].browser;
+        myChart.config.data.datasets[0].data = productionAmount;
+        myChart.config.data.labels = Labels;
+        myChart.config.data.datasets[0].backgroundColor = backgroundColor;
+        myChart.config.data.datasets[0].borderColor = borderColor;
+        myChart.config.data.datasets[0].label = "Production Amount " + productionAmountData[clickedValue].year + " (in tons)";
+
         myChart.update();
 
     }
 
     function resetChart() {
-        myChart.config.options.parsing.xAxisKey = 'browser';
-        myChart.config.options.parsing.yAxisKey = 'marketshare';
+        myChart.config.options.parsing.xAxisKey = 'year';
+        myChart.config.options.parsing.yAxisKey = 'total_production_amount';
 
-        const bColor = [];
-        const bMarketShare = [];
-        const bLabels = browserData.map(browser => {
-            bColor.push(browser.color);
-            bMarketShare.push(browser.marketshare);
-            return browser.browser;
+        const backgroundColor = [];
+        const borderColor = [];
+        const totalProductionAmount = [];
+        const Labels = productionAmountData.map(production => {
+            backgroundColor.push(production.background_color);
+            borderColor.push(production.border_color);
+            totalProductionAmount.push(production.total_production_amount);
+            return production.year;
         });
 
-        myChart.config.data.datasets[0].backgroundColor = bColor;
-        myChart.config.data.datasets[0].borderColor = bColor;
-        myChart.config.data.labels = bLabels;
-        myChart.config.data.datasets[0].label = 'Market Share';
-        myChart.config.data.datasets[0].data = bMarketShare;
+        myChart.config.data.datasets[0].backgroundColor = backgroundColor;
+        myChart.config.data.datasets[0].borderColor = borderColor;
+        myChart.config.data.labels = Labels;
+        myChart.config.data.datasets[0].label = defaultTitle;
+        myChart.config.data.datasets[0].data = totalProductionAmount;
 
         myChart.update();
     }
 
     function mouseMoveHandler(canvas, mousemove) {
-        if (myChart.config.data.datasets[0].label !== 'Market Share') {
+        if (myChart.config.data.datasets[0].label !== defaultTitle) {
             const x = mousemove.offsetX;
             const y = mousemove.offsetY;
 
