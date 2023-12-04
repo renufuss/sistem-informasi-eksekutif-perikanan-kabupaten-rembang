@@ -37,8 +37,8 @@
         <!--begin::Menu wrapper-->
         <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5"
             data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto"
-            data-kt-scroll-dependencies="#kt_app_sidebar_logo"
-            data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+            data-kt-scroll-dependencies="#kt_app_sidebar_logo" data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+            data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
             <!--begin::Menu-->
             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                 data-kt-menu="true" data-kt-menu-expand="false">
@@ -79,19 +79,20 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?php echo (url_is('drilldowns*')) ? 'show' : ''; ?>">
+                <div data-kt-menu-trigger="click"
+                    class="menu-item menu-accordion <?php echo (url_is('drilldowns*')) ? 'show' : ''; ?>">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                            <!--begin::Svg Icon | path: C:/wamp64/www/keenthemes/core/html/src/media/icons/duotune/graphs/gra001.svg-->
+                            <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg width="24" height="24"
+                                    viewBox="-5 0 35 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.3"
-                                        d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z"
+                                        d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z"
                                         fill="currentColor" />
-                                    <rect x="6" y="12" width="7" height="2" rx="1" fill="currentColor" />
-                                    <rect x="6" y="7" width="12" height="2" rx="1" fill="currentColor" />
+                                    <path
+                                        d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
@@ -105,7 +106,8 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link <?php echo (url_is('drilldowns/production-amount')) ? 'active' : ''; ?>" href="<?= base_url('drilldowns/production-amount'); ?>">
+                            <a class="menu-link <?php echo (url_is('drilldowns/production-amount')) ? 'active' : ''; ?>"
+                                href="<?= base_url('drilldowns/production-amount'); ?>">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -117,7 +119,8 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link <?php echo (url_is('drilldowns/production-value')) ? 'active' : ''; ?>" href="<?= base_url('drilldowns/production-value'); ?>">
+                            <a class="menu-link <?php echo (url_is('drilldowns/production-value')) ? 'active' : ''; ?>"
+                                href="<?= base_url('drilldowns/production-value'); ?>">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -180,7 +183,7 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span class="menu-title">About</span>
-                
+
                     </a>
                     <!--end:Menu link-->
                 </div>
