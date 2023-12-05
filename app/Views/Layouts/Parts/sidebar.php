@@ -136,7 +136,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="../../demo1/dist/apps/calendar.html">
+                    <a class="menu-link <?php echo (url_is('what-if')) ? 'active' : ''; ?>" href="<?= base_url('what-if'); ?>">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -155,7 +155,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Analisis What if</span>
+                        <span class="menu-title">What If Analysis</span>
                     </a>
                     <!--end:Menu link-->
                 </div>
