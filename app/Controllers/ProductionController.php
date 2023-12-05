@@ -5,18 +5,27 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductionModel;
 use App\Models\ProductionDetailModel;
+use App\Models\PondAreaModel;
 use App\Controllers\Utilities\Color;
+use App\Controllers\Utilities\Converter;
+use App\Controllers\Utilities\Formatter;
 
 class ProductionController extends BaseController
 {
     protected $productionModel;
     protected $productionDetailModel;
+    protected $pondAreaModel;
     protected $utilitiesColor;
+    protected $utilitiesConverter;
+    protected $utilitiesFormatter;
     public function __construct()
     {
         $this->productionModel = new ProductionModel();
         $this->productionDetailModel = new ProductionDetailModel();
+        $this->pondAreaModel = new PondAreaModel();
         $this->utilitiesColor = new Color();
+        $this->utilitiesConverter = new Converter();
+        $this->utilitiesFormatter = new Formatter();
     }
 
     public function getProductionAmount()
@@ -69,5 +78,29 @@ class ProductionController extends BaseController
             ]);
         }
         return $data;
+    }
+
+    public function getProductivity($productionAmountInTon, $pondWide)
+    {
+        $productionAmount = $this->utilitiesConverter->convertTonToKuintal($productionAmountInTon);
+        $productivity = $productionAmount / $pondWide;
+        return number_format($productivity, 2);
+    }
+
+    public function getDataByYear($year)
+    {
+        if($this->request->isAJAX()) {
+            $production = $this->productionModel->getProductionByYear($year);
+            $pondArea = $this->pondAreaModel->getPondAreaByYear($year);
+
+            $productivity = $this->getProductivity($production->total_production_amount, $pondArea->pond_wide);
+            $data = [
+                'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($pondArea->pond_wide),
+                'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($productivity),
+                'production' => $this->utilitiesFormatter->formatToIndonesianNumber($production->total_production_amount),
+            ];
+
+            return json_encode($data);
+        }
     }
 }

@@ -19,4 +19,11 @@ class ProductionModel extends Model
         ->join('years', 'productions.year_id = years.year_id', 'inner');
         return $query->get()->getResultObject();
     }
+
+    public function getProductionByYear($year)
+    {
+        $query = $this->db->table($this->table)->select('*')->where('year', $year)
+        ->join('years', 'productions.year_id = years.year_id', 'inner');
+        return $query->get()->getFirstRow();
+    }
 }
