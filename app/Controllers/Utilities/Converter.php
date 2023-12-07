@@ -9,4 +9,8 @@ class Converter
         return $ton * 10;
     }
 
+    public function convertKuintalToTon($kuintal)
+    {
+        return $kuintal / 10;
+    }
 }

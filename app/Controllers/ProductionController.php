@@ -89,18 +89,16 @@ class ProductionController extends BaseController
 
     public function getDataByYear($year)
     {
-        if($this->request->isAJAX()) {
-            $production = $this->productionModel->getProductionByYear($year);
-            $pondArea = $this->pondAreaModel->getPondAreaByYear($year);
+        $production = $this->productionModel->getProductionByYear($year);
+        $pondArea = $this->pondAreaModel->getPondAreaByYear($year);
 
-            $productivity = $this->getProductivity($production->total_production_amount, $pondArea->pond_wide);
-            $data = [
-                'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($pondArea->pond_wide),
-                'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($productivity),
-                'production' => $this->utilitiesFormatter->formatToIndonesianNumber($production->total_production_amount),
-            ];
+        $productivity = $this->getProductivity($production->total_production_amount, $pondArea->pond_wide);
+        $data = [
+            'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($pondArea->pond_wide),
+            'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($productivity),
+            'production' => $this->utilitiesFormatter->formatToIndonesianNumber($production->total_production_amount),
+        ];
 
-            return json_encode($data);
-        }
+        return json_encode($data);
     }
 }
