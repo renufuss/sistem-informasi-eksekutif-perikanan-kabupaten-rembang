@@ -290,11 +290,12 @@
     }
 
     function hideResult() {
-        $('#result').addClass('d-none');
+        $('#result').addClass('invisible');
     }
 
     function showResult() {
         $('#result').removeClass('d-none');
+        $('#result').removeClass('invisible');
     }
 
     function calculateAnalysis(variable, variableValue, year) {
