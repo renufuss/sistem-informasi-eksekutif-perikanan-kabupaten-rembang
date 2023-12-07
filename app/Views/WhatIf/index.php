@@ -174,7 +174,6 @@
     $(document).ready(function () {
         autoNumeric();
 
-
         $('#year').change(function (e) {
             e.preventDefault();
             hideResult();
@@ -186,12 +185,8 @@
             e.preventDefault();
             hideResult();
             $('#variable').removeClass('is-invalid');
+            $('#value').removeClass('is-invalid');
             $('#unit').html(getUnitByVariable($('#variable').val()));
-            if($('#value').hasClass('is-invalid')){
-                hideUnit();
-            }else{
-                showUnit();
-            }
         });
 
 
@@ -211,25 +206,33 @@
         $('#production').html('0 Ton');
     }
 
-    function showUnit(){
+    function showUnit() {
         $('#unit').removeClass('d-none');
     }
 
-    function hideUnit(){
+    function hideUnit() {
         $('#unit').addClass('d-none');
     }
 
     function getUnitByVariable(variable) {
         showUnit();
-        if (variable == 1) {
-            return 'Ha';
-        } else if (variable == 2) {
-            return 'kw/Ha';
-        } else if (variable == 3) {
-            return 'Ton';
-        } else {
+
+        if($('#value').hasClass('is-invalid')){
             hideUnit();
         }
+
+        if (!$('#value').hasClass('is-invalid') && variable == 1) {
+            return 'Ha';
+        } else if (!$('#value').hasClass('is-invalid') && variable == 2) {
+            return 'kw/Ha';
+        } else if (!$('#value').hasClass('is-invalid') && variable == 3) {
+            return 'Ton';
+        }else if (!$('#value').hasClass('is-invalid') && variable == '') {
+            hideUnit();
+            return '';
+        }
+
+        
     }
 
     function getDataByYear(year) {
@@ -264,33 +267,33 @@
         });
     }
 
-    function validationError(variable, variableValue, year){
+    function validationError(variable, variableValue, year) {
         if (variable == '') {
             $('#variable').addClass('is-invalid');
-        }else{
+        } else {
             $('#variable').removeClass('is-invalid');
         }
 
         if (variableValue == '') {
             $('#value').addClass('is-invalid');
             hideUnit();
-        }else{
+        } else {
             $('#value').removeClass('is-invalid');
             showUnit();
         }
 
         if (year == '') {
             $('#year').addClass('is-invalid');
-        }else{
+        } else {
             $('#year').removeClass('is-invalid');
         }
     }
 
-    function hideResult(){
+    function hideResult() {
         $('#result').addClass('d-none');
     }
 
-    function showResult(){
+    function showResult() {
         $('#result').removeClass('d-none');
     }
 
