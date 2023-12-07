@@ -290,12 +290,32 @@
     }
 
     function hideResult() {
-        $('#result').addClass('invisible');
+        $('#result').addClass('d-none');
     }
 
     function showResult() {
         $('#result').removeClass('d-none');
-        $('#result').removeClass('invisible');
+    }
+
+    function smoothScrollToBottom() {
+      var scrollHeight = document.body.scrollHeight;
+      var start = window.pageYOffset;
+      var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+      var duration = 800; // Adjust the duration as needed
+
+      function scrollStep(timestamp) {
+        var time = timestamp || new Date().getTime();
+        var elapsed = time - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+
+        window.scrollTo(0, start + progress * (scrollHeight - start));
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollStep);
+        }
+      }
+
+      requestAnimationFrame(scrollStep);
     }
 
     function calculateAnalysis(variable, variableValue, year) {
@@ -321,6 +341,8 @@
                 $('#productivity-result-2').html(response[1].productivity + ' kw/Ha');
 
                 showResult();
+
+                smoothScrollToBottom();
             }
         });
     }
