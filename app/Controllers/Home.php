@@ -4,15 +4,8 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        $viewData = [
-            'title' => 'Home',
-            'heading' => 'Home',
-            'breadcrumbs' => [
-                'Home' => '#',
-            ]
-        ];
-        return view('Layouts/index', $viewData);
+        return redirect()->to('/data');
     }
 }

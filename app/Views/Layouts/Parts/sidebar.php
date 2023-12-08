@@ -54,7 +54,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="../../demo1/dist/apps/calendar.html">
+                    <a class="menu-link <?php echo (url_is('data')) ? 'active' : ''; ?>" href="<?= base_url('data'); ?>">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                             <span class="svg-icon svg-icon-2">
