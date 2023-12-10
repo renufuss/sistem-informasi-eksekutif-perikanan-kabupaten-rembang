@@ -9,31 +9,26 @@
                     <table class="table table-striped gy-7 gs-7">
                         <thead>
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                <th class="min-w-200px">Name</th>
-                                <th class="min-w-400px">Position</th>
-                                <th class="min-w-100px">Office</th>
-                                <th class="min-w-200px">Age</th>
-                                <th class="min-w-200px">Start date</th>
-                                <th class="min-w-200px">Salary</th>
+                                <th class="min-w-200px">#</th>
+                                <th class="min-w-200px">Tahun</th>
+                                <th class="min-w-200px">Luas (Ha)</th>
+                                <th class="min-w-200px">Produksi (Ton)</th>
+                                <th class="min-w-200px">Produktivitas (kw/Ha)</th>
+                                <th class="min-w-200px">#</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach($tableDatas as $tableData) : ?>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td><?= $i++; ?></td>
+                                <td><?= $tableData['year']; ?></td>
+                                <td><?= $tableData['pondArea']; ?></td>
+                                <td><?= $tableData['production']; ?></td>
+                                <td><?= $tableData['productivity']; ?></td>
+                                <td><a href="<?= base_url('data/'.$tableData['year']); ?>" class="btn btn-info btn-sm">Detail</a></td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
