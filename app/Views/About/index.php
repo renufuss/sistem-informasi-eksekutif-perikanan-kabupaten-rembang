@@ -24,6 +24,16 @@
                     <li>Apriliana Pramesinta K.</li>
                     <li>Debrina Octrisya Hajjar</li>
                 </ul>
+                <br>
+                <h6>Sumber Data</h6>
+                <ul>
+                    <li>
+                        <a href="https://rembangkab.bps.go.id/statictable/2023/06/25/815/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2016-2020.html" target="_blank">Data 2016 - 2020</a>
+                    </li>
+                    <li>
+                        <a href="https://rembangkab.bps.go.id/statictable/2023/06/25/816/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2021-2022.html" target="_blank">Data 2021 - 2022</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
