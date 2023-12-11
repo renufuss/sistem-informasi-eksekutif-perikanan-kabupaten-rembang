@@ -70,8 +70,10 @@ php spark serve
 
 7. Rename file env menjadi .env
 - Sebelum
+
 ![env default](https://i.postimg.cc/VsTDnNSQ/image.png)
 - Sesudah
+
 ![renamed env](https://i.postimg.cc/cCKh2pbb/image.png)
 
 8. Sesuaikan base url dengan url server yang sedang berjalan pada file .env
@@ -80,8 +82,10 @@ php spark serve
 app.baseURL = 'http://localhost:8080'
 ```
 - Sebelum
+
 ![default base url](https://i.postimg.cc/9Qz9pdsL/image.png)
 - Sesudah
+
 ![set base url](https://i.postimg.cc/G2j9rtZB/image.png)
 
 9. Sesuaikan database sesuai dengan nama database yang sudah dibuat sebelumnya
@@ -101,8 +105,10 @@ username = root
 password = (no need password)
 ```
  - Sebelum
+
 ![default databse env](https://i.postimg.cc/qqVfmxmy/image.png)
 - Sesudah
+
 ![set database env](https://i.postimg.cc/bwY7FJRC/image.png)
 
 10. Jalankan migration untuk membuat tabel pada database
