@@ -10,30 +10,6 @@ class ProductionDetailSeeder extends Seeder
     {
         $rawProductionDetails = [
             [
-                'production_amount' => 1334.26,
-                'production_value' => 22668790000,
-                'production_type' => 'Udang Windu',
-                'year'    => 2016,
-            ],
-            [
-                'production_amount' => 3542.51,
-                'production_value' => 283400436000,
-                'production_type' => 'Udang Vanamei',
-                'year'    => 2016,
-            ],
-            [
-                'production_amount' => 474.94,
-                'production_value' => 37995353000,
-                'production_type' => 'Bandeng',
-                'year'    => 2016,
-            ],
-            [
-                'production_amount' => 158.21,
-                'production_value' => 2214904000,
-                'production_type' => 'Lain-lain',
-                'year'    => 2016,
-            ],
-            [
                 'production_amount' => 1518.83,
                 'production_value' => 22756744000,
                 'production_type' => 'Udang Windu',

@@ -10,10 +10,6 @@ class PondAreaSeeder extends Seeder
     {
         $rawPondAreas = [
             [
-                'pond_wide' => 2396,
-                'year'    => 2016,
-            ],
-            [
                 'pond_wide' => 2396.30,
                 'year'    => 2017,
             ],

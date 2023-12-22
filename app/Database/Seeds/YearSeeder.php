@@ -8,7 +8,7 @@ class YearSeeder extends Seeder
 {
     public function run()
     {
-        $firstYear = 2016;
+        $firstYear = 2017;
         $lastYear = 2022;
         $years = [];
         for ($i = $firstYear; $i <= $lastYear; $i++) {

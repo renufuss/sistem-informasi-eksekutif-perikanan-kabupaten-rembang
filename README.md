@@ -17,7 +17,7 @@ Sistem Informasi Eksekutif (SIE) yang dikembangkan oleh Kelompok 12 untuk mata k
 
 ## Sumber Data
 
- - [Data 2016 - 2020](https://rembangkab.bps.go.id/statictable/2023/06/25/815/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2016-2020.html)
+ - [Data 2017 - 2020](https://rembangkab.bps.go.id/statictable/2023/06/25/815/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2016-2020.html)
  - [Data 2021 - 2022](https://rembangkab.bps.go.id/statictable/2023/06/25/816/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2021-2022.html)
 
 

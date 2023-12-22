@@ -11,7 +11,7 @@
                     Informasi Eksekutif pada prodi Sistem Informasi di UPN Veteran Jawa Timur merupakan solusi yang
                     berfokus pada analisis data
                     Banyaknya Pembudidaya Perikanan Tambak, Luasan, Produksi, dan Nilai Produksi di Kabupaten Rembang
-                    dalam rentang waktu 2016-2022. Sistem ini dirancang dengan tujuan memberikan informasi yang relevan
+                    dalam rentang waktu 2017-2022. Sistem ini dirancang dengan tujuan memberikan informasi yang relevan
                     dan akurat kepada para eksekutif terkait kebijakan dan pengambilan keputusan di sektor perikanan.
                     Melalui antarmuka yang intuitif, SIE ini memungkinkan pengguna untuk mengakses dan memvisualisasikan
                     data secara efisien, mengeksplorasi tren waktu, dan menganalisis kinerja pembudidaya perikanan
@@ -28,7 +28,7 @@
                 <h6>Sumber Data</h6>
                 <ul>
                     <li>
-                        <a href="https://rembangkab.bps.go.id/statictable/2023/06/25/815/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2016-2020.html" target="_blank">Data 2016 - 2020</a>
+                        <a href="https://rembangkab.bps.go.id/statictable/2023/06/25/815/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2016-2020.html" target="_blank">Data 2017 - 2020</a>
                     </li>
                     <li>
                         <a href="https://rembangkab.bps.go.id/statictable/2023/06/25/816/banyaknya-pembudidaya-perikanan-tambak-luasan-produksi-dan-nilai-produksi-di-kabupaten-rembang-2021-2022.html" target="_blank">Data 2021 - 2022</a>

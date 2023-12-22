@@ -10,11 +10,6 @@ class ProductionSeeder extends Seeder
     {
         $rawProductions = [
             [
-            'total_production_amount' => 5509.92,
-            'total_production_value' => 346279483000,
-            'year'    => 2016,
-            ],
-            [
             'total_production_amount' => 5074.45,
             'total_production_value' => 298493140000,
             'year'    => 2017,
