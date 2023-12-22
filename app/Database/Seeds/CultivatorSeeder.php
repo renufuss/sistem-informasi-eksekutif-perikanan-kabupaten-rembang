@@ -10,10 +10,6 @@ class CultivatorSeeder extends Seeder
     {
         $rawCultivators = [
             [
-            'total_cultivator' => 897,
-            'year'    => 2016,
-            ],
-            [
                 'total_cultivator' => 897,
                 'year'    => 2017,
             ],
