@@ -60,6 +60,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($production),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProductivity($production, $variableValue)),
+                    'description' => 'Jika jumlah produksi tetap maka jumlah produktivitas sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProductivity($production, $variableValue)) . ' kW/Ha'
                 ];
                 array_push($data, $steadyProduction);
 
@@ -68,6 +69,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProduction($productivity, $variableValue)),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($productivity),
+                    'description' => 'Jika jumlah produktivitas tetap maka jumlah produksi sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProduction($productivity, $variableValue)) . ' Ton'
                 ];
 
                 array_push($data, $steadyProductivity);
@@ -78,6 +80,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($production),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculatePondArea($production, $variableValue)),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
+                    'description' => 'Jika jumlah produksi tetap maka jumlah luas tambak sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculatePondArea($production, $variableValue)) . ' Ha'
                 ];
 
                 array_push($data, $steadyProduction);
@@ -87,6 +90,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProduction($variableValue, $pondArea)),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($pondArea),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
+                    'description' => 'Jika jumlah luas tambak tetap maka jumlah produksi sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProduction($variableValue, $pondArea)) . ' Ton'
                 ];
 
                 array_push($data, $steadyPondArea);
@@ -98,6 +102,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($pondArea),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProductivity($variableValue, $pondArea)),
+                    'description' => 'Jika jumlah luas tambak tetap maka jumlah produktivitas sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculateProductivity($variableValue, $pondArea)) . ' kW/Ha'
                 ];
 
                 array_push($data, $steadyPondArea);
@@ -107,6 +112,7 @@ class WhatIfController extends BaseController
                     'production' => $this->utilitiesFormatter->formatToIndonesianNumber($variableValue),
                     'pond_area' => $this->utilitiesFormatter->formatToIndonesianNumber($this->calculatePondArea($variableValue, $productivity)),
                     'productivity' => $this->utilitiesFormatter->formatToIndonesianNumber($productivity),
+                    'description' => 'Jika jumlah produktivitas tetap maka jumlah luas tambak sebanyak ' . $this->utilitiesFormatter->formatToIndonesianNumber($this->calculatePondArea($variableValue, $productivity)) . ' Ha'
                 ];
 
                 array_push($data, $steadyProductivity);

@@ -122,6 +122,9 @@
                                                     <td width="5%"><b>:</b></td>
                                                     <td id="production-result-1">0 Ton</td>
                                                 </tr>
+                                                <tr>
+                                                    <td colspan=3 id="description-result-1">...</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -155,6 +158,9 @@
                                                     <td width="30%"><b>Produksi</b></td>
                                                     <td width="5%"><b>:</b></td>
                                                     <td id="production-result-2">0 Ton</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=3 id="description-result-2">...</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -335,10 +341,12 @@
                 $('#production-result-1').html(response[0].production + ' Ton');
                 $('#pond-area-result-1').html(response[0].pond_area + ' Ha');
                 $('#productivity-result-1').html(response[0].productivity + ' kw/Ha');
+                $('#description-result-1').html(response[0].description);
 
                 $('#production-result-2').html(response[1].production + ' Ton');
                 $('#pond-area-result-2').html(response[1].pond_area + ' Ha');
                 $('#productivity-result-2').html(response[1].productivity + ' kw/Ha');
+                $('#description-result-2').html(response[1].description);
 
                 showResult();
 
